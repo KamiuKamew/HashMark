@@ -9,8 +9,9 @@ all:
 	gcc -c -o var.o var.c 
 	gcc -c -o yyerror.o yyerror.c 
 	g++ -c -o ExpressionResults.o ExpressionResults.cpp
-	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o
-
+	gcc -c -o temp_main.o temp_main.c
+	gcc -c -o Interface.o Interface.c
+	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o temp_main.o Interface.o
 
 # .PHONY : all clean run
 

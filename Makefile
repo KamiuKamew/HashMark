@@ -9,4 +9,7 @@ compiler:
 	$(MAKE) -C $(DIR_COMPILER)
 
 # 伪目标声明
-.PHONY: all
+.PHONY: all run
+
+run:
+	.\src/compiler/test.exe

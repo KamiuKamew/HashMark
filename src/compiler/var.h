@@ -22,7 +22,8 @@ struct symtab {
 };
 
 struct symtab *symlook(char *s);
-void add_variable(const char *name, double value); 
+void addVariable(const char *name, double value); 
+void clearVariables();
 
 #endif
 

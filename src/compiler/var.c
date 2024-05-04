@@ -25,7 +25,14 @@ struct symtab *symlook(char *s) {
     exit(1);  // 异常退出
 }
 
-void add_variable(const char* name, double value) {
+void addVariable(const char* name, double value) {
     struct symtab* sym = symlook(name);
     sym->value = value;
+}
+
+void clearVariables(){
+    for(int i=0; i<nsym; i++){
+        symtab[i].name="";
+        symtab[i].value=0;
+    }
 }

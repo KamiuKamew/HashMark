@@ -45,21 +45,3 @@ expression : expression '+' expression { $$ = $1 + $3; }
 ;
 
 %%
-
-/*
-    注；
-    这里的main函数只是用来临时测试的
-    后面main函数会换到Qt中。
-*/
-
-int main() {
-    if (yyparse() == 0) { // Parse complete
-        size_t length;
-        const char **results = getExpressionResults(&length);
-        for (size_t i = 0; i < length; ++i) {
-            printf("%s\n", results[i]);  // Print all results
-        }
-        clearExpressionResults();
-    }
-    return 0;
-}
