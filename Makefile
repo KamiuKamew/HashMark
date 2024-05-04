@@ -1,13 +1,12 @@
+DIR_COMPILER	:=	src/compiler
+DIR_GUI			:=	src/GUI
+
 # 默认目标
 all: compiler
 
 # 编译器模块
 compiler:
-	$(MAKE) -C src/compiler
-
-# 清理项目
-clean:
-	$(MAKE) -C src/compiler clean
+	$(MAKE) -C $(DIR_COMPILER)
 
 # 伪目标声明
-.PHONY: all compiler clean
+.PHONY: all

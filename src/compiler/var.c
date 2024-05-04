@@ -2,9 +2,11 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include "yyerror.h"
 #include "var.h"  // 包含符号表结构和常量的定义
 
 int nsym=0;
+struct symtab symtab[NSYMS];
 
 struct symtab *symlook(char *s) {
     for (int i = 0; i < nsym; ++i) {
@@ -21,4 +23,9 @@ struct symtab *symlook(char *s) {
 
     yyerror("Too many symbols");  // 错误处理：符号表已满
     exit(1);  // 异常退出
+}
+
+void add_variable(const char* name, double value) {
+    struct symtab* sym = symlook(name);
+    sym->value = value;
 }

@@ -1,25 +1,54 @@
-LEXER 		:= test_lexer
-LEXER_C 	:= lex.yy.c
-PARSER 		:= test_parser
-PARSER_C 	:= y.tab.c
-PARSER_H 	:= y.tab.h
-TARGET_EXE 	:= test.exe
+# 气急败坏.jpg
 
-all: build clean run
+.PHONY:all
+all:
+	bison --yacc -dv parser.y
+	flex lexer.l 
+	gcc -c -o y.tab.o y.tab.c
+	gcc -c -o lex.yy.o lex.yy.c
+	gcc -c -o var.o var.c 
+	gcc -c -o yyerror.o yyerror.c 
+	g++ -c -o ExpressionResults.o ExpressionResults.cpp
+	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o
 
-$(PARSER_C) $(PARSER_H): $(PARSER).y
-	bison --yacc -dv $<
 
-$(LEXER_C) : $(LEXER).l
-	flex $<
+# .PHONY : all clean run
 
-$(TARGET_EXE) : $(PARSER_C) $(LEXER_C)
-	gcc -o $@ $^
+# all: $(TARGET)
 
-build: $(TARGET_EXE)
+# CC			=	gcc
+# CXX			=	g++
+# CCFLAGS		=	-Wall
+# CXXFLAGS	=	-Wall
+# TARGET 		:= 	test
 
-clean: $(LEXER_C) $(PARSER_C) $(PARSER_H)
-	del $^
+# LEXER 		:= lexer
+# PARSER 		:= parser
 
-run:
-	.\$(TARGET_EXE)
+# y.tab.c y.tab.h: $(PARSER).y
+# 	bison --yacc -dv $<
+# lex.yy.c : $(LEXER).l
+# 	flex $<
+
+# SRC_C		=	$(wildcard *.c)
+# SRC_CPP		=	$(wildcard *.cpp)
+# SRC			=	$(SRC_C) $(SRC_CPP)
+# OBJ_C		=	$(SRC_C:.c=.o)
+# OBJ_CPP		=	$(SRC_CPP:.cpp=.o)
+# OBJ			=	$(OBJ_C) $(OBJ_CPP)
+
+
+# $(OBJ_C)	:	%.o: %.c | y.tab.c
+# 	$(CC) $(CCFLAGS) -c $< -o $@
+
+# $(OBJ_CPP)	:	%.o: %.cpp
+# 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# $(TARGET)	:	$(OBJ)
+# 	$(CXX) $^ -o $@
+
+# clean: $(OBJ) 
+# 	del $^
+
+# run:
+# 	.\$(TARGET)

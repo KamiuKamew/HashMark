@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "yyerror.h"
 #include "var.h"
-int nsym = 0;
-struct symtab symtab[NSYMS];
+#include "ExpressionResults.h"  // 包含新的接口头文件
 int yylex();
-void yyerror(const char* msg);
+
 %}
 
 %union {
@@ -27,13 +27,13 @@ statement_list : statement '\n'
 ;
 
 statement : NAME '=' expression {symlook($1)->value = $3; }
-          | expression { printf("= %lf\n", $1); }
+          | expression { addExpressionResult($1); }  // 使用接口添加结果
 ;
 
 expression : expression '+' expression { $$ = $1 + $3; }
            |   expression '-' expression { $$ = $1 - $3; }
            |   expression '*' expression { $$ = $1 * $3; }
-           |   expression '/' expression        {
+           |   expression '/' expression {
                                                 if (($3) != 0.0 )
                                                 $$ = $1 / $3;
                                                 else
@@ -46,31 +46,20 @@ expression : expression '+' expression { $$ = $1 + $3; }
 
 %%
 
-struct symtab * symlook(char *s)
-{
-        int i;
+/*
+    注；
+    这里的main函数只是用来临时测试的
+    后面main函数会换到Qt中。
+*/
 
-        for (i = 0; i < nsym; ++i) {
-                if (!strcmp(symtab[i].name, s))
-                {
-                        printf("found variable.\n");
-                        return &symtab[i];
-                }
-        }
-
-        if (nsym < NSYMS) {
-                symtab[nsym].name = strdup(s);
-                ++nsym;
-                return &symtab[nsym-1];
-        }
-
-        yyerror("Too many symbols");
-        exit(1);
-}
-
-void yyerror(const char* msg) {
-        printf("%s\n",msg);
-}
 int main() {
-    return yyparse();
+    if (yyparse() == 0) { // Parse complete
+        size_t length;
+        const char **results = getExpressionResults(&length);
+        for (size_t i = 0; i < length; ++i) {
+            printf("%s\n", results[i]);  // Print all results
+        }
+        clearExpressionResults();
+    }
+    return 0;
 }
