@@ -6,25 +6,101 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>696</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="whatsThis">
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="widget_EditRegion" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QWidget" name="Layout_EditRegion_2" native="true">
+         <layout class="QVBoxLayout" name="Layout_EditRegion">
+          <item>
+           <widget class="QTextBrowser" name="textBrowser_Foreword">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>200</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="Layout_Variable_2" native="true">
+            <layout class="QHBoxLayout" name="Layout_Variable">
+             <item>
+              <widget class="QWidget" name="widget_Variable_Container" native="true"/>
+             </item>
+             <item>
+              <widget class="QScrollBar" name="ScrollBar_Variable">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_ViewRegion" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextBrowser" name="textBrowser_Main"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>696</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_FileOpen"/>
+    <addaction name="action_FileSave"/>
+    <addaction name="action_FileExport"/>
+   </widget>
+   <addaction name="menu_File"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_FileOpen">
+   <property name="text">
+    <string>打开(&amp;O)</string>
+   </property>
+  </action>
+  <action name="action_FileSave">
+   <property name="text">
+    <string>保存(&amp;S)</string>
+   </property>
+  </action>
+  <action name="action_FileExport">
+   <property name="text">
+    <string>导出</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

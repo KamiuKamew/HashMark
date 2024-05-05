@@ -1,4 +1,4 @@
-#include "Interface.h"
+#include "compiler.h"
 #include "y.tab.h"
 #include "ExpressionResults.h"
 #include "var.h"

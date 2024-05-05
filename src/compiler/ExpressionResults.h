@@ -1,7 +1,7 @@
 /*
-  这是一个有关表达式计算结果的文件。
-    1.给parser用来存放表达式结果。
-    2.给对外接口用来获取表达式结果并清空结果。
+  这是一个有关表达式计算结果的文件�?
+    1.给parser用来存放表达式结果�?
+    2.给对外接口用来获取表达式结果并清空结果�?
   这个文件对外开放三个函数接口：
     addExpressionResult：用于添加表达式结果
       --> 开放给parser
@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-// 提供给C语言调用的接口函数
+// 提供给C语言调用的接口函�?
 void addExpressionResult(double value);
 const char** getExpressionResults(size_t* length);
 void clearExpressionResults();
@@ -35,17 +35,17 @@ void clearExpressionResults();
 
 using namespace std;
 
-// ExpressionResults类只在C++环境中定义
+// ExpressionResults类只在C++环境中定�?
 class ExpressionResults {
 private:
-  vector<string> results;  // 存储表达式计算结果的字符串
+  vector<string> results;  // 存储表达式计算结果的字符�?
   ExpressionResults(){}  // 构造函数私有化
 
 public:
-  static ExpressionResults& getExpressionResultsInstance();  // 获取全局唯一实例的函数
-  void addResult(double value);  // 添加一个计算结果
-  const vector<string>& getResults() const;  // 获取所有结果
-  void clearResults();  // 清除所有结果
+  static ExpressionResults& getExpressionResultsInstance();  // 获取全局唯一实例的函�?
+  void addResult(double value);  // 添加一个计算结�?
+  const vector<string>& getResults() const;  // 获取所有结�?
+  void clearResults();  // 清除所有结�?
 };
 
 #endif // __cplusplus

@@ -10,10 +10,17 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    processor_ExpressionCalculator.cpp \
+    processor_FileSeparator.cpp \
+    processor_Main.cpp \
+    processor_MainwindowLinker.cpp \
+    widget_VariableEditor.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    processors.h \
+    widget_VariableEditor.h
 
 FORMS += \
     mainwindow.ui

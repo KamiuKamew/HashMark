@@ -1,0 +1,10 @@
+release/main.o
+release/mainwindow.o
+release/processor_ExpressionCalculator.o
+release/processor_FileSeparator.o
+release/processor_Main.o
+release/processor_MainwindowLinker.o
+release/widget_VariableEditor.o
+release/moc_mainwindow.o
+release/moc_processors.o
+release/moc_widget_VariableEditor.o

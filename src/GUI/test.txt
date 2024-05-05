@@ -1,0 +1,16 @@
+##a####收到熬好####a##
+##a+1##
+##b:=2##
+##a+2*b##
+##f(x):=x+1##
+##f(a)##
+
+std::unorderedmap
+typst
+ll1文法（编译原理）；
+递归下降解析；
+正则表达式（大概不能无限递归）；增广正则；
+正则的底层实现：自动机
+
+##parser combinature：搜giithub mpc（orange duck）##
+提前学点编译原理。

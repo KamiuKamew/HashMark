@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "yyerror.h"
 #include "var.h"
-#include "ExpressionResults.h"  // 包含新的接口头文件
+#include "ExpressionResults.h"  // 包含新的接口头文�?
 int yylex();
 
 %}

@@ -1,5 +1,5 @@
-#ifndef INTERFACE_H
-#define INTERFACE_H
+#ifndef COMPILER_H
+#define COMPILER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,4 +16,4 @@ void Comp_clearExprResults();
 }
 #endif
 
-#endif // INTERFACE_H
+#endif // COMPILER_H
