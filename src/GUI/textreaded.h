@@ -1,13 +1,23 @@
 #ifndef TEXTREADED_H
 #define TEXTREADED_H
 
-#include <QObject>
+/*
+ * 用于读取文件并存储。
+ * 从MainWindow读入filename。
+ * 对TextSeparator开放content。
+ */
 
-class Text
-{
-    Q_OBJECT
+#include <QString>
+
+class TextReaded{
+    friend class TextSeperated;
+private:
+    QString content;
+    QString fromFile;
+    TextReaded(){}
 public:
-    Text();
+    static TextReaded& GetInstance();
+    void ReadText(const QString &fileName);
 };
 
 #endif // TEXTREADED_H

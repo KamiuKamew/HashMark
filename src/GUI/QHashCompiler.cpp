@@ -1,5 +1,6 @@
-#include "QHashCompiler.h"
+#include "qhashcompiler.h"
 #include "compiler.h"
+#include <QDebug>
 
 // 添加变量
 void QCAddVar(QString name, double value) {
@@ -9,6 +10,22 @@ void QCAddVar(QString name, double value) {
 // 清除所有变量
 void QCClearVars() {
     Comp_clearVars();
+}
+
+qsizetype QCGetNumVar(){
+    return Comp_getNumVar();
+}
+
+double QCGetVar(qsizetype index, QString& name){
+    char **s=NULL;
+    double value;
+    value = Comp_getVar(index, s);  // REMINDER::这一步有大问题，会在这一步出错。
+    if(s==NULL){
+        qDebug()<<"IN QHASHCOMPILER QCGETVAR:: null name";
+        return 0;
+    }
+    name = QString::fromStdString(s[0]);
+    return value;
 }
 
 // 评估表达式

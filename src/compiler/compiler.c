@@ -13,6 +13,16 @@ void Comp_clearVars(){
     clearVariables();
 }
 
+size_t Comp_getNumVar(){
+    // var.h
+    return getNumberOfVariable();
+}
+
+double Comp_getVar(size_t index, char **s){
+    // var.h
+    return getVariable(index, s);
+}
+
 void Comp_evalExprs(const char* expressions){
     // lexer.l (lex.yy.c)
     evaluateExpressions(expressions);

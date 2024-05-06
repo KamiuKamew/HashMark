@@ -1,3 +1,0 @@
-#include "hsexprcomponents.h"
-
-HsExprComponents& Hsexpr GetInstance();

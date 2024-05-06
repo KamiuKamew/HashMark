@@ -13,23 +13,6 @@
 class Processors :public QObject{
     Q_OBJECT
 
-    /*
-     * DONE:
-     *      Main
-     *      FileSeparator
-     *
-     * WAITING TO BE TESTED:
-     *      ExpressionCalculator
-     *
-     * DEALING:
-     *      MainwindowLinker
-     *
-     * WAITING TO BE WROTE:
-     *      FunctionCalculator
-     *      HashBlockProcessor
-     */
-
-
 // Main：
 
 public:

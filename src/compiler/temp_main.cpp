@@ -1,6 +1,7 @@
 #include "compiler.h"
 #include <iostream>
 #include <cstring>
+#include <cstdio>
 using namespace std;
 
 /*
@@ -9,9 +10,7 @@ using namespace std;
     后面main函数会换到Qt中�?
 */
 
-
-int main() {
-    // if (yyparse() == 0) { // Parse complete
+// if (yyparse() == 0) { // Parse complete
     //     size_t length;
     //     const char **results = getExpressionResults(&length);
     //     for (size_t i = 0; i < length; ++i) {
@@ -21,6 +20,7 @@ int main() {
     // }
     // return 0;
 
+int main() {
     char ipt[100];
     while(1){
         cin>>ipt;
@@ -33,6 +33,15 @@ int main() {
             int value;
             cin>>name>>value;
             Comp_addVar(name,value);
+            continue;
+        }
+        if(!strcmp(ipt,"gtv")){
+            cout<<"tot vars have "<<Comp_getNumVar()<<'\n';
+            int index;
+            cin>>index;
+            char* name;
+            double value=Comp_getVar(index, &name);
+            cout<<name<<": "<<value<<'\n';
             continue;
         }
         Comp_evalExprs(ipt);

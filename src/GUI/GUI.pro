@@ -10,7 +10,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    QHashCompiler.cpp \
     hsexprcalculator.cpp \
     hsexprcomponents.cpp \
     main.cpp \
@@ -19,6 +18,7 @@ SOURCES += \
     processor_FileSeparator.cpp \
     processor_Main.cpp \
     processor_MainwindowLinker.cpp \
+    qhashcompiler.cpp \
     textgenerated.cpp \
     textreaded.cpp \
     textseperated.cpp \
@@ -31,11 +31,12 @@ SOURCES += \
     $$PWD/../compiler/compiler.c
 
 HEADERS += \
-    QHashCompiler.h \
     hsexprcalculator.h \
     hsexprcomponents.h \
     mainwindow.h \
     processors.h \
+    qhashcompiler.h \
+    test.h \
     textgenerated.h \
     textreaded.h \
     textseperated.h \
