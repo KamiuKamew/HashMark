@@ -1,6 +1,7 @@
 #ifndef PROCESSORS_H
 #define PROCESSORS_H
 
+
 #include <QObject>
 #include <QTextBrowser>
 #include <QString>

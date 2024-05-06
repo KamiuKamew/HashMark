@@ -1,0 +1,4 @@
+#ifndef TEXTOPERATOR_H
+#define TEXTOPERATOR_H
+
+#endif // TEXTOPERATOR_H

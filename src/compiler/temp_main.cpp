@@ -1,12 +1,12 @@
-#include "Interface.h"
+#include "compiler.h"
 #include <iostream>
 #include <cstring>
 using namespace std;
 
 /*
     注；
-    这里的main函数只是用来临时测试�?
-    后面main函数会换到Qt中�?
+    这里的main函数只是用来临时测试�?
+    后面main函数会换到Qt中�?
 */
 
 
