@@ -1,4 +1,4 @@
-#include "qhashcompiler.h"
+#include "Iqhashcompiler.h"
 #include "compiler.h"
 #include <QDebug>
 
@@ -17,7 +17,7 @@ qsizetype QCGetNumVar(){
 }
 
 double QCGetVar(qsizetype index, QString& name){
-    char **s=NULL;
+    char **s=new char*;
     double value;
     value = Comp_getVar(index, s);  // REMINDER::这一步有大问题，会在这一步出错。
     if(s==NULL){
@@ -25,6 +25,7 @@ double QCGetVar(qsizetype index, QString& name){
         return 0;
     }
     name = QString::fromStdString(s[0]);
+    delete s;
     return value;
 }
 
@@ -34,12 +35,14 @@ void QCEvalExprs(QString expressions) {
 }
 
 // 获取表达式结果
-QVector<QString> QCGetExprnResults(size_t* length) {
+QVector<QString> QCGetExprnResults() {
+    size_t* length=new size_t;
     const char** results = Comp_getExprnResults(length);
     QVector<QString> qResults;
     for (size_t i = 0; i < *length; ++i) {
         qResults.append(QString::fromStdString(results[i]));
     }
+    delete length;
     return qResults;
 }
 

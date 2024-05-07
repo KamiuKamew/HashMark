@@ -4,7 +4,8 @@
 /*
  * 用于定义并存放井号表达式的组件（变量与函数）
  * 对HsExprCalculator开放全部。
- * 对MainWindow开放Variables，可以手动输入变量值。
+ * 对Itext开放TGetVars，可以手动输入变量值。
+ * 对Itext开放RemoveAll，可以删除所有变量及函数。
  */
 
 #include <QDebug>
@@ -40,12 +41,14 @@ struct Variable{
 class HsExprComponents
 {
     friend class HsExprCalculator;
+    friend QVector<Variable>& TGetVars();
 private:
     QVector<Variable> Variables; // 变量（名-值）
     QVector<Function> Functions; // 函数（名-值列表-表达式）
     HsExprComponents(){}
 public:
     static HsExprComponents& GetInstance();
+    void ComponentsClear();
 };
 
 #endif // HSEXPRCOMPONENTS_H

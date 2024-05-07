@@ -9,8 +9,6 @@
  * 向TextGenerated开放Results。
  */
 
-// REMINDER:: 这是重点部分，一会再写，先把其他的重构完先。
-
 #include <QVector>
 #include <QString>
 
@@ -19,9 +17,11 @@ class HsExprCalculator
     friend class TextGenerated;
 private:
     QVector<QString> results;
-    static HsExprCalculator& GetInstance();
+    HsExprCalculator(){}
 public:
+    static HsExprCalculator& GetInstance();
     void Calculate();
+    void Initialize();
 };
 
 #endif // HSEXPRCALCULATOR_H

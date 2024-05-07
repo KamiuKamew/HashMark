@@ -3,7 +3,7 @@
 
 /*
  * 用于读取文件并存储。
- * 从MainWindow读入filename。
+ * 从Itext读入filename。
  * 对TextSeparator开放content。
  */
 

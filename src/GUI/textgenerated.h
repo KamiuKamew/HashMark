@@ -12,6 +12,7 @@
 
 class TextGenerated
 {
+    friend QString TGetGenr();
 private:
     QString content;
     TextGenerated(){}
