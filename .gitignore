@@ -6,3 +6,5 @@ lex.yy.*
 *.o
 *.exe
 *.output
+
+build-GUI-unknown-Debug/

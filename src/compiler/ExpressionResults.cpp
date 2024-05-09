@@ -11,7 +11,7 @@ ExpressionResults& ExpressionResults::getExpressionResultsInstance() {
     return instance;
 }
 
-// 添加一个结果到vector中
+// 添加一个结果到vector�?
 void ExpressionResults::addResult(double value) {
     char buffer[50];
     sprintf(buffer, "= %lf", value);
@@ -23,7 +23,7 @@ const vector<string>& ExpressionResults::getResults() const {
     return results;
 }
 
-// 清空所有结果
+// 清空所有结�?
 void ExpressionResults::clearResults() {
     results.clear();
 }

@@ -1,4 +1,4 @@
-# 气急败坏.jpg
+# 气急败�?jpg
 
 .PHONY:all
 all:
@@ -9,8 +9,10 @@ all:
 	gcc -c -o var.o var.c 
 	gcc -c -o yyerror.o yyerror.c 
 	g++ -c -o ExpressionResults.o ExpressionResults.cpp
-	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o
-
+	g++ -c -o temp_main.o temp_main.cpp
+	gcc -c -o compiler.o compiler.c
+	g++ -c -o CHashCompiler.o CHashCompiler.cpp
+	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o temp_main.o compiler.o CHashCompiler.o
 
 # .PHONY : all clean run
 
