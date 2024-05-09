@@ -82,6 +82,8 @@
     </property>
     <addaction name="action_FileOpen"/>
     <addaction name="action_FileSave"/>
+    <addaction name="action_FileSaveAs"/>
+    <addaction name="separator"/>
     <addaction name="action_FileExport"/>
    </widget>
    <addaction name="menu_File"/>
@@ -98,7 +100,12 @@
   </action>
   <action name="action_FileExport">
    <property name="text">
-    <string>导出</string>
+    <string>导出(&amp;E)</string>
+   </property>
+  </action>
+  <action name="action_FileSaveAs">
+   <property name="text">
+    <string>另存为(&amp;A)</string>
    </property>
   </action>
  </widget>

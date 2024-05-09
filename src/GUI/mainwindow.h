@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow{
 private:
     Ui::MainWindow *ui;
     bool isFileOpened;
+    QString CurrentFileName;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -33,6 +34,7 @@ public:
 private slots:
     void on_action_FileOpen_triggered();
     void on_action_FileSave_triggered();
+    void on_action_FileSaveAs_triggered();
     void on_action_FileExport_triggered();
     void on_action_value_edited();
 };
