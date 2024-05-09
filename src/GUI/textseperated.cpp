@@ -1,6 +1,6 @@
 #include "textseperated.h"
 #include "textreaded.h"
-#include <QDebug>
+#include "hsdebug.h"
 
 TextSeperated& TextSeperated::GetInstance(){
     static TextSeperated instance;
@@ -45,5 +45,5 @@ void TextSeperated::Seperate(){
     expressions.append("");  // 没有表达式与之对应
     sepnum=bodies.size();
 
-    qDebug() << "Separation complete. Bodies and expressions stored.";
+    hsdebug<<"file separatded. sepnum = "<<sepnum;
 }

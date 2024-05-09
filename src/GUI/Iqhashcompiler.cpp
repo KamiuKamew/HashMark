@@ -1,6 +1,6 @@
 #include "Iqhashcompiler.h"
 #include "compiler.h"
-#include <QDebug>
+#include "hsdebug.h"
 
 // 添加变量
 void QCAddVar(QString name, double value) {
@@ -21,7 +21,7 @@ double QCGetVar(qsizetype index, QString& name){
     double value;
     value = Comp_getVar(index, s);  // REMINDER::这一步有大问题，会在这一步出错。
     if(s==NULL){
-        qDebug()<<"IN QHASHCOMPILER QCGETVAR:: null name";
+        hsdebug<<"null name";
         return 0;
     }
     name = QString::fromStdString(s[0]);
@@ -35,14 +35,39 @@ void QCEvalExprs(QString expressions) {
 }
 
 // 获取表达式结果
-QVector<QString> QCGetExprnResults() {
-    size_t* length=new size_t;
-    const char** results = Comp_getExprnResults(length);
+QVector<QString> QCGetExprResults(){
+    size_t* resnum=new size_t;
+    const char** results = Comp_getExprnResults(resnum);
+    hsdebug<<"resnum ="<<*resnum;
     QVector<QString> qResults;
-    for (size_t i = 0; i < *length; ++i) {
+    for (size_t i = 0; i < *resnum; ++i) {
         qResults.append(QString::fromStdString(results[i]));
     }
-    delete length;
+    delete resnum;
+    return qResults;
+}
+QVector<QString> QCGetExprResults(QVector<bool> isEmptyList) {
+    size_t* resnum=new size_t;
+    const char** results = Comp_getExprnResults(resnum);
+    hsdebug<<"resnum ="<<*resnum;
+    /*
+     * 这里的resnum是返回的表达式值的个数。
+     * 由于下面的特性，resnum<=exprnum==sepnum。
+     * 注意这里有个特性：
+     * 空表达式不会返回值。
+     * 因此这里需要传入空表达式列表isEmptyList
+     * 当某个下标对应的表达式为空时：
+     * 返回的qResults在这里为空。
+     */
+    QVector<QString> qResults;
+    qsizetype resindex=0;
+    for (qsizetype i = 0; i < isEmptyList.size(); ++i) {
+        if(isEmptyList[i])
+            qResults.append("");
+        else
+            qResults.append(QString::fromStdString(results[resindex++]));
+    }
+    delete resnum;
     return qResults;
 }
 

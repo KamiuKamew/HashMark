@@ -18,7 +18,8 @@ void QCClearVars();
 qsizetype QCGetNumVar();
 double QCGetVar(qsizetype index, QString& name);
 void QCEvalExprs(QString expressions);
-QVector<QString> QCGetExprnResults();
+QVector<QString> QCGetExprResults();
+QVector<QString> QCGetExprResults(QVector<bool> isEmpty);
 void QCClearExprResults();
 
 #endif // QHASHCOMPILER_H

@@ -4,11 +4,12 @@
 /*
  * 用于定义并存放井号表达式的组件（变量与函数）
  * 对HsExprCalculator开放全部。
+ * 对HsVarEditWidget开放Variables
  * 对Itext开放TGetVars，可以手动输入变量值。
  * 对Itext开放RemoveAll，可以删除所有变量及函数。
  */
 
-#include <QDebug>
+#include "hsdebug.h"
 #include <QVector>
 #include <QString>
 
@@ -31,7 +32,7 @@ struct Variable{
     Variable(QString n, QString v):
         Name(n),
         Value(v){
-        qDebug() << "variable created: "<<n<<"with walue"<<v;
+        hsdebug << "variable created:"<<n<<"with value"<<v;
     }
     friend bool operator==(Variable v1, const QString qs){
         return v1.Name == qs;
@@ -41,6 +42,7 @@ struct Variable{
 class HsExprComponents
 {
     friend class HsExprCalculator;
+    friend class HsVarEditWidget;
     friend QVector<Variable>& TGetVars();
 private:
     QVector<Variable> Variables; // 变量（名-值）

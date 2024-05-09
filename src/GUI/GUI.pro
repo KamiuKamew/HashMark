@@ -12,18 +12,15 @@ CONFIG += c++17
 SOURCES += \
     Iqhashcompiler.cpp \
     Itext.cpp \
+    hsdebug.cpp \
     hsexprcalculator.cpp \
     hsexprcomponents.cpp \
+    hsvareditwidget.cpp \
     main.cpp \
     mainwindow.cpp \
-    processor_ExpressionCalculator.cpp \
-    processor_FileSeparator.cpp \
-    processor_Main.cpp \
-    processor_MainwindowLinker.cpp \
     textgenerated.cpp \
     textreaded.cpp \
     textseperated.cpp \
-    widget_VariableEditor.cpp \
     $$PWD/../compiler/lex.yy.c \
     $$PWD/../compiler/y.tab.c \
     $$PWD/../compiler/var.c \
@@ -34,15 +31,14 @@ SOURCES += \
 HEADERS += \
     Iqhashcompiler.h \
     Itext.h \
+    hsdebug.h \
     hsexprcalculator.h \
     hsexprcomponents.h \
+    hsvareditwidget.h \
     mainwindow.h \
-    processors.h \
-    test.h \
     textgenerated.h \
     textreaded.h \
     textseperated.h \
-    widget_VariableEditor.h \
     $$PWD/../compiler/y.tab.h \
     $$PWD/../compiler/var.h \
     $$PWD/../compiler/ExpressionResults.h \

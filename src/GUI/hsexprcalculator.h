@@ -16,7 +16,7 @@ class HsExprCalculator
 {
     friend class TextGenerated;
 private:
-    QVector<QString> results;
+    QVector<QString> expressionResults;
     HsExprCalculator(){}
 public:
     static HsExprCalculator& GetInstance();

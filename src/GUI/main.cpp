@@ -1,11 +1,5 @@
 #include "mainwindow.h"
-
 #include <QApplication>
-#include <QWidget>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLineEdit>
-#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -18,8 +12,6 @@ int main(int argc, char *argv[])
 
 
 
-
-
 // #include <QApplication>
 // #include <QWidget>
 // #include <QLineEdit>
@@ -29,8 +21,10 @@ int main(int argc, char *argv[])
 // #include <QTextEdit>
 // #include <QString>
 // #include "Iqhashcompiler.h"
+// #include "hsdebug.h"
 
 // int main(int argc, char *argv[]) {
+//     HSDebug<<"test:1";
 //     QApplication app(argc, argv);
 
 //     QWidget window;
@@ -75,7 +69,7 @@ int main(int argc, char *argv[])
 //             }
 //         } else {
 //             QCEvalExprs(input);
-//             QVector<QString> results = QCGetExprnResults();
+//             QVector<QString> results = QCGetExprResults();
 //             for (size_t i = 0; i < results.size(); ++i) {
 //                 textEdit->append(results[i]);
 //             }
