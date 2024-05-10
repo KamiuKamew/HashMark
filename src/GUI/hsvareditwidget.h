@@ -16,6 +16,7 @@ class HsVarEditWidget : public QWidget
 {
     Q_OBJECT
 private:
+    qsizetype index;
     QLineEdit *nameLineEdit;
     QLineEdit *valueLineEdit;
 

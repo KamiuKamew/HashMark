@@ -2,8 +2,6 @@
 #include "hsexprcomponents.h"
 #include <QHBoxLayout>
 
-qsizetype index=0;
-
 HsVarEditWidget::HsVarEditWidget() {}
 
 HsVarEditWidget::HsVarEditWidget(qsizetype variableIndex, QWidget* parent):
@@ -31,6 +29,6 @@ void HsVarEditWidget::valueChanged(const QString &newValue) {
     QVector<Variable>& vars = HsExprComponents::GetInstance().Variables;
     vars[index].Value = newValue;
     HSDebug<<"value"<<nameLineEdit->text()<<"changed into"<<valueLineEdit->text();
-    HSDebug<<"vars[0] is"<<vars[0].Value;
+    HSDEBUG(hsCalcDebug)<<vars[index].Name<<vars[index].Value;
     emit valueEdited(); // 发射信号，表示变量值已编辑
 }

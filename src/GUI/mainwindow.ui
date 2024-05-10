@@ -35,19 +35,20 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="Layout_Variable_2" native="true">
-            <layout class="QHBoxLayout" name="Layout_Variable">
-             <item>
-              <widget class="QWidget" name="widget_Variable_Container" native="true"/>
-             </item>
-             <item>
-              <widget class="QScrollBar" name="ScrollBar_Variable">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
-             </item>
-            </layout>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="widget_Variable_Container">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>288</width>
+               <height>251</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
           </item>
          </layout>

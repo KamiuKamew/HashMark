@@ -45,6 +45,7 @@ void HsExprCalculator::Calculate(){
     QCClearExprResults();
 
     // 传入变量表
+    HSDEBUG(hsCalcDebug)<<"import variable table:";
     for(qsizetype index=0; index<vars.size(); index++){
         QCAddVar(
             vars[index].Name,
@@ -53,6 +54,7 @@ void HsExprCalculator::Calculate(){
                 vars[index].Value.toDouble()
              )
          );   //后面需要改一下。毕竟不能只传入数字，还应该可以传入字符。
+        HSDEBUG(hsCalcDebug)<<vars[index].Name<<'='<<vars[index].Value<<"of index"<<index;
     }
 
     // 传入表达式

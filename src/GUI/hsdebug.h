@@ -17,6 +17,7 @@
 // 设置区：
 // 详细Debug信息：
 #define hsDetailDebug 1
+#define hsCalcDebug 1
 
 
 #include <QTextStream>
@@ -29,5 +30,7 @@ extern QTextStream null_stream;
 #else
 #define HSDebug null_stream
 #endif
+
+#define HSDEBUG(BOOL) if(BOOL) qDebug()<<__FILE__<<':'<<__LINE__<<'-'
 
 #endif // HSDEBUG_H

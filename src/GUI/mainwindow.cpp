@@ -129,6 +129,18 @@ void MainWindow::on_action_value_edited(){
     HSDebug<<"variable value edited.";
     TCalcAll();
     TWDispText(ui->textBrowser_Main);
+    /*
+     * 当变量被改变时：依次执行以下函数
+     * hsvareditwidget :        组件的textchanged信号发出。
+     * hsvareditwidget :        valuechanged被调用。
+     * hsvareditwidget :        valueedited信号发出。
+     * （hsvareditwidget ：        TWDispVars连接信号）此步并非在此执行。
+     * mainwindow       :       on_action_value_edited被调用。
+     * itext            ：       TCalcAll被调用。
+     * itext            ：       TCCalc
+     * hsexprcalculator :       calculate
+     * itext            ：       TGenr
+     */
 }
 
 QString GenerateSavedFile(){
