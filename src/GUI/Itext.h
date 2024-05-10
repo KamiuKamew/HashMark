@@ -30,6 +30,10 @@ QVector<Variable>& TGetVars();
 void TGenr();
 QString TGetGenr();
 
+//HsCodeGenerated
+void TCodeGenr();
+QString TCodeGetGenr();
+
 //Itext-window
 class MainWindow;       // forward declaration of struct Variable
 void TWSetMainWindow(MainWindow *mw);

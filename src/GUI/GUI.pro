@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     Iqhashcompiler.cpp \
     Itext.cpp \
+    hscodegenerated.cpp \
     hsdebug.cpp \
     hsexprcalculator.cpp \
     hsexprcomponents.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 HEADERS += \
     Iqhashcompiler.h \
     Itext.h \
+    hscodegenerated.h \
     hsdebug.h \
     hsexprcalculator.h \
     hsexprcomponents.h \
