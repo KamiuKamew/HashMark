@@ -18,6 +18,9 @@ void TReadFile(const QString &fileName){
 void TSepr(){
     TextSeperated::GetInstance().Seperate();
 }
+QString TGetHead(){
+    return TextSeperated::GetInstance().head;
+}
 
 
 #include "hsexprcalculator.h"
@@ -64,6 +67,10 @@ QString TGetGenr(){
 // 1F0R
 void TWSetMainWindow(MainWindow *mw){
     mainwindow=mw;
+}
+void TWDispHead(QTextBrowser *Browser){
+    Browser->setText(TGetHead());
+    hsdebug<< "head displayed.";
 }
 // 在指定组件中展示生成的文本
 // 1FnR

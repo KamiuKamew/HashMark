@@ -39,6 +39,7 @@ void MainWindow::on_action_FileOpen_triggered()
     TReadFile(fileName);
     TInitAll();
     TCalcAll();
+    TWDispHead(ui->textBrowser_Foreword);
     TWDispText(ui->textBrowser_Main);
     TWDispVars(ui->widget_Variable_Container);
     isFileOpened=true;
@@ -141,6 +142,7 @@ void MainWindow::on_action_value_edited(){
      * hsexprcalculator :       calculate
      * itext            ：       TGenr
      */
+    hsdebug<<"value edited.\n";
 }
 
 QString GenerateSavedFile(){

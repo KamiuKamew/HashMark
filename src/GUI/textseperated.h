@@ -6,6 +6,7 @@
  * 从TextReaded读入content。
  * 对TextGenerated开放bodies。
  * 对HsExprCalculator开放expressions。
+ * 对TGetHead开放head.
  */
 
 #include <QString>
@@ -15,6 +16,7 @@ class TextSeperated
 {
     friend class HsExprCalculator;
     friend class TextGenerated;
+    friend QString TGetHead();
 private:
     QString head;
     QVector<QString> bodies;
@@ -23,6 +25,7 @@ private:
     TextSeperated(){}
 public:
     static TextSeperated& GetInstance();
+    void Initialize();
     void Seperate();
 };
 

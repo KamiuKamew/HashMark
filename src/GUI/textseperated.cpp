@@ -7,14 +7,36 @@ TextSeperated& TextSeperated::GetInstance(){
     return instance;
 }
 
+void TextSeperated::Initialize(){
+    head.clear();
+    bodies.clear();
+    expressions.clear();
+    sepnum=0;
+}
+
 void TextSeperated::Seperate(){
     // 获取Text类的单例和其内容
     TextReaded& text = TextReaded::GetInstance();
     QString content = text.content;
 
-    int dbHashStart = content.indexOf("##");
-    int dbHashEnd = 0;
-    int dbHashEnd_last = -2;
+    int HashHeadStart = content.indexOf("#{");
+    int HashHeadEnd = content.indexOf("}#");
+
+    if(HashHeadStart==-1 && HashHeadEnd==-1){
+        hsdebug<<"hash head: void";
+    }
+    else if(HashHeadStart*HashHeadEnd<0){
+        hsdebug<<"hash head: wrong form";
+    }
+    else{
+        head = content.mid(HashHeadStart+2, HashHeadEnd-(HashHeadStart+2));
+        HSDebug<<"hash head separated";
+    }
+
+    int hhs=(HashHeadEnd==-1?-2:HashHeadEnd);
+    int dbHashStart = content.indexOf("##",hhs+2);
+    int dbHashEnd =         hhs+2;
+    int dbHashEnd_last =    hhs;
 
     while (dbHashStart != -1) {
         dbHashEnd = content.indexOf("##", dbHashStart + 2);
@@ -23,6 +45,9 @@ void TextSeperated::Seperate(){
             QString BodyPiece = content.mid(dbHashEnd_last + 2, dbHashStart - (dbHashEnd_last + 2));
             // 双井号间的表达式
             QString Expression = content.mid(dbHashStart + 2, dbHashEnd - (dbHashStart + 2));
+
+            HSDEBUG(hsSeprDebug)<<"body:"<<BodyPiece;
+            HSDEBUG(hsSeprDebug)<<"expr:"<<Expression;
 
             bodies.append(BodyPiece);
             expressions.append(Expression);

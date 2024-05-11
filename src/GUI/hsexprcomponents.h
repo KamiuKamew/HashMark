@@ -32,7 +32,7 @@ struct Variable{
     Variable(QString n, QString v):
         Name(n),
         Value(v){
-        hsdebug << "variable created:"<<n<<"with value"<<v;
+        HSDebug << "variable created:"<<n<<"with value"<<v;
     }
     friend bool operator==(Variable v1, const QString qs){
         return v1.Name == qs;

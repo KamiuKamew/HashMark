@@ -16,6 +16,7 @@ void TReadFile(const QString &fileName);
 
 //TextSeperated
 void TSepr();
+QString TGetHead();
 
 //HsExprCalculator
 void TCInit();
@@ -37,6 +38,7 @@ QString TCodeGetGenr();
 //Itext-window
 class MainWindow;       // forward declaration of struct Variable
 void TWSetMainWindow(MainWindow *mw);
+void TWDispHead(QTextBrowser *Browser);
 void TWDispText(QTextBrowser *Browser);
 void TWDispVars(QWidget *widget_Variable_Container);
 

@@ -11,8 +11,7 @@ all:
 	g++ -c -o ExpressionResults.o ExpressionResults.cpp
 	g++ -c -o temp_main.o temp_main.cpp
 	gcc -c -o compiler.o compiler.c
-	g++ -c -o CHashCompiler.o CHashCompiler.cpp
-	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o temp_main.o compiler.o CHashCompiler.o
+	g++ -o test y.tab.o lex.yy.o var.o yyerror.o ExpressionResults.o temp_main.o compiler.o
 
 # .PHONY : all clean run
 
