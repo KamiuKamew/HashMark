@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "yyerror.h"
 #include "var.h"
-#include "ExpressionResults.h"  // 包含新的接口头文�?
+#include "ExpressionResults.h"  // 包含新的接口头文�?
 int yylex();
 
 %}
@@ -18,6 +18,7 @@ int yylex();
 %token <dval> NUMBER
 %left '+' '-'
 %left '*' '/'
+%right UMINUS
 
 %type <dval> expression
 
@@ -40,6 +41,7 @@ expression : expression '+' expression { $$ = $1 + $3; }
                                                  yyerror("divide by zero");
                                                 }
            |   '(' expression ')' { $$ = $2; }
+           |   '-' expression %prec UMINUS { $$ = -$2; }
            |   NUMBER
            |   NAME {$$ = symlook($1)->value; }
 ;
