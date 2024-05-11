@@ -27,11 +27,11 @@ statement_list : statement '\n'
                |   statement_list statement '\n'
 ;
 
-statement : NAME '=' expression {symlook($1)->value = $3; }
-          | expression { addExpressionResult($1); }  // 使用接口添加结果
+statement : expression { addExpressionResult($1); }  // 使用接口添加结果
 ;
 
-expression : expression '+' expression { $$ = $1 + $3; }
+expression :   NAME '=' expression { symlook($1)->value = $3; $$ = $3; }
+           |   expression '+' expression { $$ = $1 + $3; }
            |   expression '-' expression { $$ = $1 - $3; }
            |   expression '*' expression { $$ = $1 * $3; }
            |   expression '/' expression {
