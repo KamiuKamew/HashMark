@@ -16,6 +16,7 @@ int yylex();
 
 %token <varname> NAME
 %token <dval> NUMBER
+%left ':'
 %left '+' '-'
 %left '*' '/'
 %right UMINUS
@@ -27,7 +28,8 @@ statement_list : statement '\n'
                |   statement_list statement '\n'
 ;
 
-statement : expression { addExpressionResult($1); }  // 使用接口添加结果
+statement : NAME ':' expression { if(!issymcontain($1)) symlook($1)->value = $3; }
+          | expression { addExpressionResult($1); }  // 使用接口添加结果
 ;
 
 expression :   NAME '=' expression { symlook($1)->value = $3; $$ = $3; }

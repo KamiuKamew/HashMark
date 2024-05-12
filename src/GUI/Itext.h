@@ -41,8 +41,10 @@ void TWSetMainWindow(MainWindow *mw);
 void TWDispHead(QTextBrowser *Browser);
 void TWDispText(QTextBrowser *Browser);
 void TWDispVars(QWidget *widget_Variable_Container);
+void TWClearVarsDispWidget(QWidget *widget_Variable_Container);
 
-//Itext-text
+//Itext-texts
+void TClearAll();
 void TInitAll();
 void TCalcAll();
 

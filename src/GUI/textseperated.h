@@ -7,6 +7,7 @@
  * 对TextGenerated开放bodies。
  * 对HsExprCalculator开放expressions。
  * 对TGetHead开放head.
+ * 对hscodegenerated开放head，bodies和expressions
  */
 
 #include <QString>
@@ -17,6 +18,7 @@ class TextSeperated
     friend class HsExprCalculator;
     friend class TextGenerated;
     friend QString TGetHead();
+    friend class HsCodeGenerated;
 private:
     QString head;
     QVector<QString> bodies;
@@ -25,7 +27,7 @@ private:
     TextSeperated(){}
 public:
     static TextSeperated& GetInstance();
-    void Initialize();
+    void Clear();
     void Seperate();
 };
 

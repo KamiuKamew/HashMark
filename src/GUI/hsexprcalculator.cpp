@@ -57,10 +57,12 @@ void HsExprCalculator::Calculate(){
         HSDEBUG(hsCalcDebug)<<vars[index].Name<<'='<<vars[index].Value<<"of index"<<index;
     }
 
-    // 传入表达式
+    // 传入表达式，顺便判断是否是空表达式。
     for(qsizetype index=0; index<exprs.size(); index++){
         QCEvalExprs(exprs[index]);
-        isExprsEmpty[index]=exprs[index].isEmpty();
+        isExprsEmpty[index]=
+            exprs[index].isEmpty() ||
+            exprs[index].contains(':');
     }
     
     // 获取表达式值

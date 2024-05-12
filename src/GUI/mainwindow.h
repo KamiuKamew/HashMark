@@ -24,7 +24,6 @@ class MainWindow : public QMainWindow{
     friend void TWDispVars(QWidget *widget_Variable_Container);
 private:
     Ui::MainWindow *ui;
-    bool isFileOpened;
     QString CurrentFileName;
 
 public:

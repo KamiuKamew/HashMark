@@ -8,10 +8,14 @@ TextReaded& TextReaded::GetInstance(){
     return instance;
 }
 
-void TextReaded::ReadText(const QString &fileName){
+void TextReaded::Clear(){
     content.clear();
-    fromFile=fileName;
+    fromFile.clear();
+}
 
+void TextReaded::ReadText(const QString &fileName){
+    Clear();
+    fromFile=fileName;
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         hsdebug<<"Failed to open file: " << file.errorString(); // 输出文件打开失败信息

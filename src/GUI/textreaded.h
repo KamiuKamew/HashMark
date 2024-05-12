@@ -17,6 +17,7 @@ private:
     TextReaded(){}
 public:
     static TextReaded& GetInstance();
+    void Clear();
     void ReadText(const QString &fileName);
 };
 

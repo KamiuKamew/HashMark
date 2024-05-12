@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    isFileOpened=false;
     TWSetMainWindow(this);
     CurrentFileName.clear();
 }
@@ -35,6 +34,10 @@ void MainWindow::on_action_FileOpen_triggered()
         hsdebug<<"file failed to open.\n";
         return;
     }
+
+    TClearAll();
+    TWClearVarsDispWidget(ui->widget_Variable_Container);
+
     CurrentFileName=fileName;
     TReadFile(fileName);
     TInitAll();
@@ -42,12 +45,9 @@ void MainWindow::on_action_FileOpen_triggered()
     TWDispHead(ui->textBrowser_Foreword);
     TWDispText(ui->textBrowser_Main);
     TWDispVars(ui->widget_Variable_Container);
-    isFileOpened=true;
     hsdebug<<"file opened.\n";
 }
 
-
-QString GenerateSavedFile();
 
 void MainWindow::on_action_FileSave_triggered()
 {
@@ -55,6 +55,7 @@ void MainWindow::on_action_FileSave_triggered()
     if(CurrentFileName.isEmpty()){
         hsdebug<<"no file opened";
         hsdebug<<"file failed to save.\n";
+        QMessageBox::warning(this, "警告", "未打开文件！");
         return;
     }
     QFile file(CurrentFileName);
@@ -63,8 +64,13 @@ void MainWindow::on_action_FileSave_triggered()
         hsdebug<<"file failed to save.\n";
         return;
     }
+
+
     QTextStream out(&file);
-    out << GenerateSavedFile(); // 将生成的内容写入文件
+    TCodeGenr();
+    out << TCodeGetGenr(); // 将生成的内容写入文件
+
+
     if (out.status() != QTextStream::Ok) {
         hsdebug << "saving content failed to write to file."; // 检查并输出写入错误信息
         hsdebug<<"file failed to save.\n";
@@ -77,6 +83,12 @@ void MainWindow::on_action_FileSave_triggered()
 void MainWindow::on_action_FileSaveAs_triggered()
 {
     hsdebug<<"file save-as-ing ...";
+    if(CurrentFileName.isEmpty()){
+        hsdebug<<"no file opened";
+        hsdebug<<"file failed to save.\n";
+        QMessageBox::warning(this, "警告", "未打开文件！");
+        return;
+    }
     QString fileName = QFileDialog::getSaveFileName(
         this, tr("Save File As"), "",
         tr("Text Files (*.txt);;All Files (*)"));
@@ -91,8 +103,13 @@ void MainWindow::on_action_FileSaveAs_triggered()
         hsdebug<<"file failed to save.\n";
         return;
     }
+
+
     QTextStream out(&file);
-    out << GenerateSavedFile();  // 将生成的内容写入文件
+    TCodeGenr();
+    out << TCodeGetGenr();  // 将生成的内容写入文件
+
+
     if (out.status() != QTextStream::Ok) {
         hsdebug << "saving content failed to write to file.";
         hsdebug<<"file failed to save.\n";
@@ -104,7 +121,7 @@ void MainWindow::on_action_FileSaveAs_triggered()
 
 void MainWindow::on_action_FileExport_triggered()
 {
-    if(isFileOpened == false){
+    if(CurrentFileName.isEmpty()){
         QMessageBox::warning(this, "警告", "未打开文件！");
         return;
     }
@@ -143,13 +160,4 @@ void MainWindow::on_action_value_edited(){
      * itext            ：       TGenr
      */
     hsdebug<<"value edited.\n";
-}
-
-QString GenerateSavedFile(){
-    QString content;
-
-    content="测试文本";
-
-    hsdebug<<"savedfile generated. size ="<<content.size();
-    return content;
 }

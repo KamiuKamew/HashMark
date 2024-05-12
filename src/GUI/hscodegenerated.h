@@ -3,21 +3,22 @@
 
 /*
  * 用于生成用来保存或另存为的代码。
- * 从textSepearted读入bodies和expressions
- * 从
- *
- * 似乎很难以写，先搁置。
+ * 从textSepearted读入head，bodies和expressions
+ * 从hsexprcomponents读入variables。
+ * 向Itext开放code；
  */
 
 #include <QString>
 
 class HsCodeGenerated
 {
+    friend QString TCodeGetGenr();
 private:
     QString code;
     HsCodeGenerated(){}
 public:
     static HsCodeGenerated& GetInstance();
+    void Clear();
     void Generate();
 };
 

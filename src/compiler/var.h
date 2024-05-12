@@ -20,13 +20,14 @@ extern "C" {
 #ifndef VAR_H
 #define VAR_H
 
-#define NSYMS 20 /* 允许的符号个�?*/
+#define NSYMS 100 /* 允许的符号个�?*/
 
 struct symtab {
   char *name;     /* 变量�?*/
   double value;   /* 变量�?*/
 };
 
+int issymcontain(char *s);
 struct symtab *symlook(char *s);
 void addVariable(const char *name, double value); 
 void clearVariables();

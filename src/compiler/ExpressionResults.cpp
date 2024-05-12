@@ -11,10 +11,10 @@ ExpressionResults& ExpressionResults::getExpressionResultsInstance() {
     return instance;
 }
 
-// 添加一个结果到vector�?
+// 添加一个结果到vector�?
 void ExpressionResults::addResult(double value) {
     char buffer[50];
-    sprintf(buffer, "= %lf", value);
+    sprintf(buffer, "%lf", value);
     results.push_back(string(buffer));
 }
 
@@ -23,7 +23,7 @@ const vector<string>& ExpressionResults::getResults() const {
     return results;
 }
 
-// 清空所有结�?
+// 清空所有结�?
 void ExpressionResults::clearResults() {
     results.clear();
 }

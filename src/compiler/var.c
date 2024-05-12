@@ -7,6 +7,15 @@
 int nsym=0;
 struct symtab symtab[NSYMS];
 
+int issymcontain(char *s){
+    for (int i = 0; i < nsym; ++i) {
+        if (!strcmp(symtab[i].name, s)) {  // 检查变量名是否已存�?
+            return 1;
+        }
+    }
+    return 0;
+}
+
 struct symtab *symlook(char *s) {
     for (int i = 0; i < nsym; ++i) {
         if (!strcmp(symtab[i].name, s)) {  // 检查变量名是否已存�?

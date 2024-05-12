@@ -40,7 +40,7 @@ void TCCalc(){
 // 清除变量表、函数表
 // 1F1R
 void TCCompClear(){
-    HsExprComponents::GetInstance().ComponentsClear();
+    HsExprComponents::GetInstance().Clear();
 }
 // 调用变量
 // 1FnR
@@ -61,6 +61,18 @@ QString TGetGenr(){
     return TextGenerated::GetInstance().content;
 }
 
+
+#include "hscodegenerated.h"
+// 生成保存的代码
+// 1F1R
+void TCodeGenr(){
+    HsCodeGenerated::GetInstance().Generate();
+}
+// 获得生成的代码
+// 1F1R
+QString TCodeGetGenr(){
+    return HsCodeGenerated::GetInstance().code;
+}
 
 // In Itext-Window::
 // 链接主窗口
@@ -101,9 +113,36 @@ void TWDispVars(QWidget *widget_Variable_Container){
     }
     widget_Variable_Container->setLayout(layout_Variable_Container);
 }
+// 清除变量展示组件中的变量表。
+// 1F1R
+void TWClearVarsDispWidget(QWidget *widget_Variable_Container) {
+    QLayout* layout_Variable_Container = widget_Variable_Container->layout();
+    if (layout_Variable_Container != nullptr) {
+        // 删除布局中的所有组件
+        QLayoutItem* item;
+        while ((item = layout_Variable_Container->takeAt(0)) != nullptr) {
+            if (item->widget()) {
+                delete item->widget();  // 删除组件
+            }
+            delete item;  // 删除布局项
+        }
+    }
+    delete layout_Variable_Container;
+}
+
 
 
 //Itext
+// 清除全部旧数据，用在确认读入后，正式读入前。
+// 1F1R
+void TClearAll(){
+    TextReaded::GetInstance().Clear();
+    TextSeperated::GetInstance().Clear();
+    HsExprComponents::GetInstance().Clear();
+    TextGenerated::GetInstance().Clear();
+    HsCodeGenerated::GetInstance().Clear();
+    //TWClearVarsDispWidget();这个得手动调用，因为需要输入。
+}
 // 初始化全部，用在读入后、调用变量前。
 // 1F1R
 void TInitAll(){

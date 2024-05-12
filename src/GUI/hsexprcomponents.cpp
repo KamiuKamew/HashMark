@@ -5,7 +5,7 @@ HsExprComponents& HsExprComponents::GetInstance(){
     return instance;
 }
 
-void HsExprComponents::ComponentsClear(){
+void HsExprComponents::Clear(){
     Variables.clear();
     Functions.clear();
 }

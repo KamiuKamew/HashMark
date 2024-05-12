@@ -18,7 +18,7 @@ private:
     TextGenerated(){}
 public:
     static TextGenerated& GetInstance();
-    void Initialize();
+    void Clear  ();
     void Generate();
 };
 

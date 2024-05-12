@@ -7,7 +7,7 @@ TextSeperated& TextSeperated::GetInstance(){
     return instance;
 }
 
-void TextSeperated::Initialize(){
+void TextSeperated::Clear(){
     head.clear();
     bodies.clear();
     expressions.clear();
@@ -36,8 +36,7 @@ void TextSeperated::Seperate(){
     int hhs=(HashHeadEnd==-1?-2:HashHeadEnd);
     int dbHashStart = content.indexOf("##",hhs+2);
     int dbHashEnd =         hhs+2;
-    int dbHashEnd_last =    hhs;
-
+    int dbHashEnd_last =    hhs;    
     while (dbHashStart != -1) {
         dbHashEnd = content.indexOf("##", dbHashStart + 2);
         if (dbHashEnd != -1) {

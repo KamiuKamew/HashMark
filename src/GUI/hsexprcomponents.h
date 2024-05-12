@@ -6,7 +6,8 @@
  * 对HsExprCalculator开放全部。
  * 对HsVarEditWidget开放Variables
  * 对Itext开放TGetVars，可以手动输入变量值。
- * 对Itext开放RemoveAll，可以删除所有变量及函数。
+ * 对Itext开放Clear，可以删除所有变量及函数。
+ * 对hscodegenerated开放variables。
  */
 
 #include "hsdebug.h"
@@ -44,13 +45,14 @@ class HsExprComponents
     friend class HsExprCalculator;
     friend class HsVarEditWidget;
     friend QVector<Variable>& TGetVars();
+    friend class HsCodeGenerated;
 private:
     QVector<Variable> Variables; // 变量（名-值）
     QVector<Function> Functions; // 函数（名-值列表-表达式）
     HsExprComponents(){}
 public:
     static HsExprComponents& GetInstance();
-    void ComponentsClear();
+    void Clear();
 };
 
 #endif // HSEXPRCOMPONENTS_H
