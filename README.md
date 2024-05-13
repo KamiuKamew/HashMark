@@ -1,2 +1,45 @@
 # HashMark
- HashMark: An Innovative Script Interpreter for Enhanced User Interaction
+**注意：本项目为一份南开大学大一高级语言设计期末作业，侧重于实践与学习，实用性并不高。请谨慎下载使用。**
+
+
+
+ **还在为一个字一个字手敲大学物理实验报告而发愁吗？（将在未来推出的、完全体的）HashMark将会解放你的双手，自动生成大学物理实验报告！（现在的版本不太行，但也能用）**
+
+
+
+### 使用方法：
+
+HashMark需要读入HashCode后方可运行。以下以安装包中自带的demo.txt为例进行说明。当你有一份HashCode（例如安装包中自带的demo.txt）以后，打开HashMark，选择“文件”——“打开”，选择demo.txt即可。此时，页面中的三个窗口（即头部文本框、变量表、文本预览框）均会显示HashCode中定义的内容。随后，你可以编辑变量表中的变量值。你可以随时保存填写的变量。在填写完毕后，你可以将文本预览框中的文本导出为txt格式。
+
+
+
+### 下载方式：
+
+点击右侧的Release即可下载。
+
+
+
+### 推荐使用场景：物理实验课
+
+- 上物理实验课前：下载（问HashMark作者要）一份对应的实验的HashCode（注：作者也没有）
+- 上物理实验课时：打开HashMark，在HashMark中打开一份HashCode。每测一份数据，在对应变量处填写该数据。
+- 上完物理实验课：在HashMark中将生成的文本导出文本为实验报告。
+
+
+
+### 将来会添加的功能：（鸽）
+
+- 在HashCode中设置保留小数位数。
+- 在HashMark中查找变量、自定义变量顺序。
+- 在HashCode中定义函数。
+
+
+
+### 一些名词的简要解释：
+
+- HashMark：一款基于Flex & Bison的自动化实验报告生成器。
+- HashCode：井号代码，形式为.txt文件，相当于一份模板。HashMark依据HashCode中定义的变量及表达式进行文本生成。
+- HashExpression：井号表达式，是HashCode中参与计算的部分。
+- 头部文本框：HashMark窗口中显示头部文本的窗口。
+- 变量表：HashMark窗口中显示变量的窗口。
+- 文本预览框：HashMark窗口中预览生成的文本的窗口。
