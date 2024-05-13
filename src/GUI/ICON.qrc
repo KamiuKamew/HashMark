@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>HashMark.ico</file>
+        <file>HashMark.png</file>
+    </qresource>
+</RCC>

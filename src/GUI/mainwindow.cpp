@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include "hsdebug.h"
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     TWSetMainWindow(this);
     CurrentFileName.clear();
+    this->setWindowIcon(QIcon(":/icon/HashMark.png"));
+    this->setWindowTitle("HashMark");
 }
 
 MainWindow::~MainWindow()
