@@ -35,6 +35,14 @@ HashMark需要读入HashCode后方可运行。以下以安装包中自带的demo
 
 
 
+
+### 项目编译方法：
+- 在项目文件夹下运行 `make` （这是为了使用flex&bison生成编译器）
+- 找到项目文件夹下的./src/GUI，打开Qt项目文件GUI.pro
+- 在Qt中点击Run。
+
+
+
 ### 一些名词的简要解释：
 
 - HashMark：一款基于Flex & Bison的自动化实验报告生成器。
@@ -43,3 +51,8 @@ HashMark需要读入HashCode后方可运行。以下以安装包中自带的demo
 - 头部文本框：HashMark窗口中显示头部文本的窗口。
 - 变量表：HashMark窗口中显示变量的窗口。
 - 文本预览框：HashMark窗口中预览生成的文本的窗口。
+
+
+
+### 有关作者：
+- QQ email：1846750316@qq.com
